@@ -1,15 +1,12 @@
 import math
 import random
 
-
 class Player():
     def __init__(self, letter):
         self.letter = letter
 
     def get_move(self, game):
         pass
-
-
 class HumanPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
@@ -27,18 +24,15 @@ class HumanPlayer(Player):
             except ValueError:
                 print('Invalid square. Try again.')
         return val
-
 class SmartComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
-
     def get_move(self, game):
         if len(game.available_moves()) == 9:
             square = random.choice(game.available_moves())
         else:
             square = self.minimax(game, self.letter)['position']
         return square
-
     def minimax(self, state, player):
         max_player = self.letter
         other_player = 'O' if player == 'X' else 'X'

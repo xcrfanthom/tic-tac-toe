@@ -2,7 +2,6 @@ import math
 import time
 from main import HumanPlayer, SmartComputerPlayer
 
-
 class TicTacToe():
     def __init__(self):
         self.board = self.make_board()
@@ -49,7 +48,6 @@ class TicTacToe():
         return self.board.count(' ')
     def available_moves(self):
         return [i for i, x in enumerate(self.board) if x == " "]
-
 def play(game, x_player, o_player, print_game=True):
     if print_game:
         game.print_board_nums()
